@@ -20,6 +20,6 @@ async def on_ready():
     print(f"{client.user} sirviendo...")
 
 if __name__ == "__main__":
-    client.run(TOKEN)    
+    client.run(TOKEN)
 
 #! Version: 1.0.0
