@@ -14,10 +14,10 @@ class Ban_User(commands.Cog):
     async def Ban_command(self, ctx, member: discord.Member, reason=None):
         if error_message := await validade_Actions(ctx.author, member, "ban"):
             return await ctx.send(error_message)
-        safe_action(ctx.send(), member.ban(reason=reason))
+        await safe_action(ctx.send(), member.ban(reason=reason))
     
     @app_commands.command(name="ban", description="Ban a user")
     async def Ban_slash(self, interaction: discord.Interaction, member: discord.Member, reason: Optional[str]=None):
         if error_message := await validade_Actions(interaction.user, member, "ban"):
             return await interaction.response.send_message(error_message, ephemeral=True)
-        safe_action(interaction.response.send_message(), member.ban(reason=reason))
+        await safe_action(lambda msg: interaction.response.send_message(msg, ephemeral=True), member.ban(reason=reason))

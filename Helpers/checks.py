@@ -6,14 +6,14 @@ async def validade_Actions(moderator: discord.Member, target: discord.Member, ac
     bot_member = guild.me
     # Auto ban
     if moderator == target:
-        return f"No te puedes {accion}te a ti mismo 😭"
+        return f"❌ You cannot {accion} yourself"
     # Owner
     if target == guild.owner:
-        return f"No puedes {accion} al dueño del servidor 👑"
+        return f"❌ You cannot {accion} the owner"
     # User jerarchy
     if target.top_role >= moderator.top_role:
-        return f"No puedes {accion} a alguien con un rol igual o superior al tuyo ❌"
+        return f"❌ You cannot {accion} a user with a higher role than yours"
     # bot jerarshi 🤔
     if target.top_role >= bot_member.top_role:
-        return f"No puedo {accion} a alguien con un rol superior al mío ❌"
+        return f"❌ I cannot {accion} someone with a higher role than mine"
     return None
