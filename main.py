@@ -1,7 +1,6 @@
 import discord
 from  discord.ext import commands
 from dotenv import load_dotenv
-from discord import app_commands
 import os
 
 load_dotenv()
@@ -35,4 +34,4 @@ async def on_ready():
 if __name__ == "__main__":
     client.run(TOKEN)
 
-#! Version: 1.7.5
+#! Version: 1.8.6

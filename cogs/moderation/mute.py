@@ -26,4 +26,4 @@ class Mute_User(commands.Cog):
             return await interaction.response.send_message(err_message, ephemeral=True)
         if not (muted_role := discord.utils.get(interaction.guild.roles, name=MUTED_ROLE_NAME)):
             return await interaction.response.send_message(f"❌ Cannot find the role named {MUTED_ROLE_NAME}", ephemeral=True)
-        await safe_action(lambda msg: interaction.response.send_message(msg, ephemeral=True), member.add_roles(muted_role, reason=reason))
+        await safe_action(lambda msg: interaction.response.send_message(msg, ephemeral=True), member.add_roles(muted_role, reason=reason), "kick")
