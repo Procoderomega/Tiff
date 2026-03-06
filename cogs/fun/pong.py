@@ -6,13 +6,7 @@ class Pong_Command(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
-    @commands.command(name="ping")
-    async def ping_command(self, ctx):
-        await ctx.send("Pong! 🏓")
-    
-    @app_commands.command(name="ping", description="the bot replies whit 'pong'")
-    async def ping_slash(self, interaction: discord.Interaction):
-        await interaction.response.send_message("Pong! 🏓")
-
-async def setup(bot):
-    await bot.add_cog(Pong_Command(bot))
+    @commands.hybrid_command(name="ping", description="The bot replys whit 'Pong' and latency")
+    async def ping_hybrid(self, ctx: commands.Context):
+        bot_lat = round(self.bot.latency * 1000)
+        await ctx.send(f"Pong! 🏓\nLatency: {bot_lat} ms")
