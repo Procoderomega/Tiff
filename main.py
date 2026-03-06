@@ -35,4 +35,4 @@ async def on_ready():
 if __name__ == "__main__":
     client.run(TOKEN)
 
-#! Version: 1.6.4
+#! Version: 1.7.5

@@ -23,6 +23,3 @@ class kick_User(commands.Cog):
         if err_message := await validade_Actions(interaction.user, member, "kick"):
             return await interaction.response.send_message(err_message, ephemeral=True)
         await safe_action(lambda msg: interaction.response.send_message(msg, ephemeral=True), member.kick(reason=reason))
-
-async def setup(bot):
-    await bot.add_cog(kick_User(bot))
