@@ -1,23 +1,17 @@
 import discord
 from discord import app_commands
 from discord.ext import commands
-from typing import Optional
-from Helpers import validade_Actions
+from Helpers import validade_actions
 from Helpers import safe_action
 
-class Ban_User(commands.Cog):
+class BanUser(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     
-    @commands.command(name="ban")
+    @commands.hybrid_command(name="ban", description="Ban a user")
     @commands.has_permissions(ban_members=True)
-    async def Ban_command(self, ctx, member: discord.Member, reason=None):
-        if error_message := await validade_Actions(ctx.author, member, "ban"):
-            return await ctx.send(error_message)
-        await safe_action(ctx.send(), member.ban(reason=reason))
-    
-    @app_commands.command(name="ban", description="Ban a user")
-    async def Ban_slash(self, interaction: discord.Interaction, member: discord.Member, reason: Optional[str]=None):
-        if error_message := await validade_Actions(interaction.user, member, "ban"):
-            return await interaction.response.send_message(error_message, ephemeral=True)
-        await safe_action(lambda msg: interaction.response.send_message(msg, ephemeral=True), member.ban(reason=reason))
+    @app_commands.default_permissions(ban_members=True)
+    async def ban_hybrid(self, ctx: commands.Context, member: discord.Member, reason: str | None = None):
+        if err_message := await validade_actions(ctx.author, member, "ban"):
+            return await ctx.send(err_message, ephemeral=True)
+        await safe_action(lambda msg: ctx.send(msg, ephemeral=True),lambda: member.ban(reason=reason), "ban")

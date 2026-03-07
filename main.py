@@ -14,16 +14,16 @@ intents.message_content = True
 
 class MyBot(commands.Bot):
     async def setup_hook(self):
-        # Cargar cogs
+        # Loading da cogs
         await self.load_extension("cogs.moderation")
         await self.load_extension("cogs.fun")
 
-        # Sincronización rápida solo en tu servidor de desarrollo
+        # Quick sync only in my guild ig
         guild = discord.Object(id=int(GID))
         self.tree.copy_global_to(guild=guild)
         await self.tree.sync(guild=guild)
-        #print("Slash commands sincronizados en global 🌍")
-        print("Slash commands sincronizados en desarrollo ⚡")
+        #print("Slash synced in global 🌍")
+        print("Slash synced in development ⚡")
 
 client = MyBot(command_prefix=PREFIX, intents=intents, help_command=None)
 

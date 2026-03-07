@@ -1,10 +1,10 @@
-from .kick import kick_User
-from .ban import Ban_User
-from .mute import Mute_User
-from .unmute import Unmute_User
+from .kick import KickUser
+from .ban import BanUser
+from .mute import MuteUser
+from .unmute import UnmuteUser
 
 async def setup(bot):
-    await bot.add_cog(kick_User(bot)) #~ Kick command
-    await bot.add_cog(Ban_User(bot)) #~ Ban command
-    await bot.add_cog(Mute_User(bot)) #~ Mute command
-    await bot.add_cog(Unmute_User(bot)) #~ Unmute command
+    await bot.add_cog(KickUser(bot)) #~ Kick command
+    await bot.add_cog(BanUser(bot)) #~ Ban command
+    await bot.add_cog(MuteUser(bot)) #~ Mute command
+    await bot.add_cog(UnmuteUser(bot)) #~ Unmute command

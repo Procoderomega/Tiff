@@ -1,8 +1,8 @@
 import discord
 
-async def safe_action(send_func, action_coroutine, action):
+async def safe_action(send_func, action_coroutine_func, action):
     try:
-        await action_coroutine
+        await action_coroutine_func()
         return await send_func(f"✅ User was {action}")
     except discord.Forbidden:
         await send_func("❌ I don't have enough permissions.")

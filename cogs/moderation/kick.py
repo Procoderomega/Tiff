@@ -1,25 +1,17 @@
 import discord
 from discord.ext import commands
-from typing import Optional
-from Helpers import validade_Actions
-from Helpers import safe_action
 from discord import app_commands
+from Helpers import validade_actions
+from Helpers import safe_action
 
-class kick_User(commands.Cog):
+class KickUser(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     
-    @commands.command(name="kick")
+    @commands.hybrid_command(name="kick", description="Kick an user")
     @commands.has_permissions(kick_members=True)
-    async def kick_command(self, ctx, member: discord.Member, reason=None):
-        if error_message := await validade_Actions(ctx.author, member, "kick"):
-            return await ctx.send(error_message)
-        await safe_action(ctx.send, member.kick(reason=reason))
-        
-
-    @app_commands.command(name="kick", description="kick an user")
-    @app_commands.checks.has_permissions(kick_members=True)
-    async def kick_slash(self, interaction: discord.Interaction, member: discord.Member, reason: Optional[str]=None):
-        if err_message := await validade_Actions(interaction.user, member, "kick"):
-            return await interaction.response.send_message(err_message, ephemeral=True)
-        await safe_action(lambda msg: interaction.response.send_message(msg, ephemeral=True), member.kick(reason=reason))
+    @app_commands.default_permissions(kick_members=True)
+    async def kick_command(self, ctx: commands.Context, member: discord.Member, reason: str | None = None):
+        if err_message := await validade_actions(ctx.author, member, "kick"):
+            return await ctx.send(err_message, ephemeral=True)
+        await safe_action(lambda msg: ctx.send(msg, ephemeral=True), lambda: member.kick(reason=reason), "kick")

@@ -1,7 +1,7 @@
 import discord
 
 #^ ========================= VALIDADOR DE BANEOS ====================================================== ^#
-async def validade_Actions(moderator: discord.Member, target: discord.Member, accion: str) -> str | None:
+async def validade_actions(moderator: discord.Member, target: discord.Member, accion: str) -> str | None:
     guild = moderator.guild
     bot_member = guild.me
     # Auto ban
