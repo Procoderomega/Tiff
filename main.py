@@ -1,13 +1,15 @@
 import discord
 from  discord.ext import commands
 from dotenv import load_dotenv
+import tomllib
+from Config import config
 import os
 
 load_dotenv()
 
 TOKEN = os.getenv("TOKEN")
 PREFIX = os.getenv("PREFIX", "$")
-GID = os.getenv("GUILD_ID")
+GID = config["Server"]["Guild_Id"]
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -17,13 +19,7 @@ class MyBot(commands.Bot):
         # Loading da cogs
         await self.load_extension("cogs.moderation")
         await self.load_extension("cogs.fun")
-
-        # Quick sync only in my guild ig
-        guild = discord.Object(id=int(GID))
-        self.tree.copy_global_to(guild=guild)
-        await self.tree.sync(guild=guild)
-        #print("Slash synced in global 🌍")
-        print("Slash synced in development ⚡")
+        await self.load_extension("cogs.owner_only")
 
 client = MyBot(command_prefix=PREFIX, intents=intents, help_command=None)
 
@@ -34,4 +30,4 @@ async def on_ready():
 if __name__ == "__main__":
     client.run(TOKEN)
 
-#! Version: 1.8.6
+#! Version: 1.10.0

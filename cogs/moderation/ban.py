@@ -1,8 +1,7 @@
 import discord
 from discord import app_commands
 from discord.ext import commands
-from Helpers import validade_actions
-from Helpers import safe_action
+from Helpers import validade_actions, safe_action
 
 class BanUser(commands.Cog):
     def __init__(self, bot):

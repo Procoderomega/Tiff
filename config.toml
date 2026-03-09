@@ -1,3 +1,8 @@
+[Server]
+
+Guild_Id =  67 #!{here goes your guild ID, must be int} 
+            #? Here goes the GI of your development server
+
 [Roles]
 
-Muted = "Muted role"
+Muted = "Muted role" #? Here you change for the 'Mute role' of your server
