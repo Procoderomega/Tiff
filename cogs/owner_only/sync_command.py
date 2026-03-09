@@ -4,8 +4,9 @@ import dotenv
 from Config import config
 from discord import app_commands
 from discord.ext import commands
+from Config import config
 
-GUILD_ID = os.getenv("GUILD_ID")
+GUILD_ID = config["Server"]["Guild_Id"]
 
 class SyncSlashCommands(commands.Cog):
     def __init__(self, bot):

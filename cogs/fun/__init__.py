@@ -1,4 +1,4 @@
-from .pong import Pong_Command
+from .pong import PongMeta
 
 async def setup(bot):
-    await bot.add_cog(Pong_Command(bot))
+    await bot.add_cog(PongMeta(bot))
