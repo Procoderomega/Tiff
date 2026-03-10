@@ -1,12 +1,9 @@
 import discord
 from discord import app_commands
 from discord.ext import commands
-from Helpers import validade_actions, safe_action
+from Helpers import validade_actions, safe_action, BaseCog
 
-class BanUser(commands.Cog):
-    def __init__(self, bot):
-        self.bot = bot
-    
+class BanMeta(BaseCog):
     @commands.hybrid_command(name="ban", description="Ban a user")
     @commands.has_permissions(ban_members=True)
     @app_commands.default_permissions(ban_members=True)

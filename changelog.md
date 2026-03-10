@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.12.7
+### Changed
+- Added a metaclass function to all classes in my cogs, reducing lines of code and improving internal code readability
+- Updated changelog.md
+- Modified line 32 of main.py
+- Renamed multiple classes in various moderation commands
+
+---
+
 ## 1.12.3
 ### Added
 - Ephemeral option for the `/pong` slash command in `pong.py`.

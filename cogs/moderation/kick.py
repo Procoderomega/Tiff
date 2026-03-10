@@ -1,13 +1,9 @@
 import discord
 from discord.ext import commands
 from discord import app_commands
-from Helpers import validade_actions
-from Helpers import safe_action
+from Helpers import validade_actions, safe_action, BaseCog
 
-class KickUser(commands.Cog):
-    def __init__(self, bot):
-        self.bot = bot
-    
+class KickMeta(BaseCog):
     @commands.hybrid_command(name="kick", description="Kick an user")
     @commands.has_permissions(kick_members=True)
     @app_commands.default_permissions(kick_members=True)

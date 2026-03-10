@@ -1,11 +1,9 @@
 import discord
 from discord import app_commands
 from discord.ext import commands
+from Helpers import BaseCog
 
-class PurgeMessages(commands.Cog):
-    def __init__(self, bot):
-        self.bot = bot
-    
+class PurgeMeta(BaseCog):
     @commands.hybrid_command(name="purge",)
     @commands.has_permissions(manage_messages=True)
     @app_commands.default_permissions(manage_messages=True)

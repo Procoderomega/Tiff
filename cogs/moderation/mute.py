@@ -1,15 +1,12 @@
 import discord
 from discord import app_commands
-from Helpers import validade_actions
-from Helpers import safe_action
+from Helpers import validade_actions, safe_action, BaseCog
 from discord.ext import commands
 from Config import config
+
 MUTED_ROLE_NAME = config["Roles"]["Muted"]
 
-class MuteUser(commands.Cog):
-    def __init__(self, bot):
-        self.bot = bot
-
+class MuteMeta(BaseCog):
     @commands.hybrid_command(name="mute", description="mute an user")
     @commands.has_permissions(manage_roles=True)
     @app_commands.default_permissions(manage_roles=True)
