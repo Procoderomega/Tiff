@@ -1,4 +1,10 @@
 # Changelog
+## 1.12.8
+### Changed
+- Renamed imported files in `cogs/moderation/init.py`
+
+### Fixed
+- Critical bug in `cogs/moderation/init.py` [When renaming the classes, I didn’t rename the imported files in init.py, which caused a critical bug.]
 
 ## 1.12.7
 ### Changed

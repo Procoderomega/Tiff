@@ -1,12 +1,12 @@
-from .kick import KickUser
-from .ban import BanUser
-from .mute import MuteUser
+from .kick import KickMeta
+from .ban import BanMeta
+from .mute import MuteMeta
 from .unmute import UnmuteUser
-from .clear import PurgeMessages
+from .clear import PurgeMeta
 
 async def setup(bot):
-    await bot.add_cog(KickUser(bot)) #~ Kick command
-    await bot.add_cog(BanUser(bot)) #~ Ban command
-    await bot.add_cog(MuteUser(bot)) #~ Mute command
+    await bot.add_cog(KickMeta(bot)) #~ Kick command
+    await bot.add_cog(BanMeta(bot)) #~ Ban command
+    await bot.add_cog(MuteMeta(bot)) #~ Mute command
     await bot.add_cog(UnmuteUser(bot)) #~ Unmute command
-    await bot.add_cog(PurgeMessages(bot)) #~ Clear command
+    await bot.add_cog(PurgeMeta(bot)) #~ Clear command
