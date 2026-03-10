@@ -6,3 +6,7 @@ Guild_Id =  1476692849985851594 #!{here goes your guild ID, must be int}
 [Roles]
 
 Muted = "Muted role" #? Here you change for the 'Mute role' of your server
+
+[Bot]
+
+Prefix = "<"

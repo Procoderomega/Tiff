@@ -1,14 +1,13 @@
 import discord
 from  discord.ext import commands
 from dotenv import load_dotenv
-import tomllib
 from Config import config
 import os
 
 load_dotenv()
 
 TOKEN = os.getenv("TOKEN")
-PREFIX = os.getenv("PREFIX", "$")
+PREFIX = config["Bot"]["Prefix"]
 GID = config["Server"]["Guild_Id"]
 
 intents = discord.Intents.default()
@@ -30,4 +29,4 @@ async def on_ready():
 if __name__ == "__main__":
     client.run(TOKEN)
 
-#! Version: 1.11.0
+#! Version: 1.12.3
