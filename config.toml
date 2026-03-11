@@ -1,7 +1,8 @@
 [Server]
 
 Guild_Id =  1476692849985851594 #!{here goes your guild ID, must be int} 
-            #? Here goes the GI of your development server
+
+Log_Channel = 1481157050338906254 #! {here goes your log channel ID, must be int}
 
 [Roles]
 

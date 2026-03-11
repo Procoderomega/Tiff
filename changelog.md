@@ -1,4 +1,38 @@
 # Changelog
+
+## Unreleased
+### Working on
+- Log system
+- New modularization approach
+- New metaclass methods for services
+
+---
+
+## 1.14.0
+### Added
+- Added `services/` folder
+- Added `__init__.py` to `services/`
+- Added `logging_service.py`
+- `LoggingService` initialization in `main.py`
+
+### Changed
+- Testing logging service with `ban.py`
+
+### Known Issues
+- Ban command logging currently broken
+
+---
+
+## 1.13.0
+### Added
+- Added moods.json in Config/
+- Added bot_mood.py in Fun/
+
+## Changes
+- Fixed bugs on sync_command.py
+
+---
+
 ## 1.12.8
 ### Changed
 - Renamed imported files in `cogs/moderation/init.py`

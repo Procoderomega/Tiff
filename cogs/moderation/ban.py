@@ -2,6 +2,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 from Helpers import validade_actions, safe_action, BaseCog
+from services import LoggingService
 
 class BanMeta(BaseCog):
     @commands.hybrid_command(name="ban", description="Ban a user")
@@ -11,3 +12,4 @@ class BanMeta(BaseCog):
         if err_message := await validade_actions(ctx.author, member, "ban"):
             return await ctx.send(err_message, ephemeral=True)
         await safe_action(lambda msg: ctx.send(msg, ephemeral=True),lambda: member.ban(reason=reason), "ban")
+        await self.bot.log_service.log_ban(moderator=ctx.author, target=member, reason=reason) 
