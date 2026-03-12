@@ -6,6 +6,14 @@
 - New modularization approach
 - New metaclass methods for services
 
+## 1.14.3
+### Changed
+- Fixed `logging_service` bug in ban.py
+
+### Added 
+- Added `logging_service` to mute.py
+- Added `log_mute` function in `logging_service.py`
+
 ---
 
 ## 1.14.0
@@ -28,7 +36,7 @@
 - Added moods.json in Config/
 - Added bot_mood.py in Fun/
 
-## Changes
+## Changed
 - Fixed bugs on sync_command.py
 
 ---
