@@ -1,2 +1,30 @@
 language = "python3"
 run = "python main.py"
+modules = ["python-3.11"]
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Tiff Run command"
+mode = "sequential"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python3 main.py"
+
+[workflows.workflow.metadata]
+outputType = "console"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Tiff Run command"
+
+[agent]
+expertMode = true
