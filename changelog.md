@@ -6,6 +6,12 @@
 - New modularization approach
 - New metaclass methods for services
 
+## 1.14.5
+### Added
+- `colorama` library for colored terminal output
+- Updated `requirements.txt` with colorama
+- Improved terminal messages when starting the bot
+
 ## 1.14.3
 ### Changed
 - Fixed `logging_service` bug in ban.py
